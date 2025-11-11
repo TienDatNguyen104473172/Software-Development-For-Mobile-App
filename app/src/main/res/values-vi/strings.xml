@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WikiHub</string>
+    <string name="novel_title_label">Tên Truyện</string>
+    <string name="author_label">Tác giả</string>
+</resources>

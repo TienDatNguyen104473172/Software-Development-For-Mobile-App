@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Mini_Library</string>
+    <string name="app_name">WikiHub</string>
+    <string name="novel_title_label">Novel Title</string>
+    <string name="author_label">Author</string>
 </resources>
