@@ -1,4 +1,4 @@
-package com.example.mini_library.data
+package com.example.mini_library.data // Đảm bảo đúng package
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CharacterDao {
-    // Lấy tất cả nhân vật của một truyện
+    // Lấy tất cả nhân vật của một truyện (đảm bảo không có lỗi chính tả)
     @Query("SELECT * FROM characters WHERE novelId = :novelId ORDER BY name ASC")
     fun getCharactersByNovel(novelId: Int): Flow<List<Character>>
 

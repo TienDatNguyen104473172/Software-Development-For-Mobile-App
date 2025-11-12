@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add New Novel"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/editNovelTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Novel Title (e.g., Phàm Nhân Tu Tiên)"/>
+
+    <EditText
+        android:id="@+id/editNovelAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Author (e.g., Vong Ngữ)"/>
+
+    <EditText
+        android:id="@+id/editNovelCoverUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cover Image URL (Optional)"/>
+
+    <EditText
+        android:id="@+id/editNovelSummary"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Summary..."
+        android:gravity="top"/>
+
+    <Button
+        android:id="@+id/btnSaveNovel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Novel"/>
+
+</LinearLayout>

@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">WikiHub</string>
+    <string name="app_name">Cultivator Codex</string>
     <string name="novel_title_label">Novel Title</string>
     <string name="author_label">Author</string>
+    <string name="tab_overview">Overview</string>
+    <string name="tab_characters">Characters</string>
+    <string name="tab_sects">Sects</string>
+    <string name="tab_techniques">Techniques</string>
+    <string name="tab_cultivation">Cultivation</string>
 </resources>

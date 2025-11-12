@@ -30,28 +30,40 @@
 
     <ImageButton
         android:id="@+id/btnPrev"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@android:drawable/ic_media_previous"
         android:scaleType="fitCenter"
         app:tint="#888888"
+        android:contentDescription="Previous Page"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/viewPagerNovels"
         app:layout_constraintBottom_toBottomOf="@id/viewPagerNovels" />
 
     <ImageButton
         android:id="@+id/btnNext"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="8dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@android:drawable/ic_media_next"
         android:scaleType="fitCenter"
         app:tint="#888888"
+        android:contentDescription="Next Page"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/viewPagerNovels"
         app:layout_constraintBottom_toBottomOf="@id/viewPagerNovels" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddNewNovel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:contentDescription="Add New Novel"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

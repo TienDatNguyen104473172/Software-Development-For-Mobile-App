@@ -1,5 +1,6 @@
 package com.example.mini_library // Đảm bảo đúng package của bạn
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -10,10 +11,11 @@ import com.example.mini_library.data.Novel
 import com.example.mini_library.ui.MainViewModel
 import com.example.mini_library.ui.MainViewModelFactory
 import com.example.mini_library.ui.NovelAdapter
+import com.example.mini_library.BuildConfig // Import file BuildConfig
 
 class MainActivity : AppCompatActivity() {
 
-    // 1. Khởi tạo ViewModel (để lấy dữ liệu)
+    // 1. Khởi tạo ViewModel
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory((application as WikiApplication).repository)
     }
@@ -29,14 +31,12 @@ class MainActivity : AppCompatActivity() {
 
         // 3. Khởi tạo Adapter
         val adapter = NovelAdapter { novel ->
-            // Xử lý khi nhấn vào bìa sách
-            Toast.makeText(this, "Selected: ${novel.title}", Toast.LENGTH_SHORT).show()
-            // Sau này sẽ mở màn hình đọc truyện tại đây
+            onNovelClicked(novel)
         }
         viewPager.adapter = adapter
 
-        // 4. Tạo hiệu ứng "Cover Flow" (trang ở giữa to hơn)
-        viewPager.offscreenPageLimit = 1 // Giữ 1 trang bên cạnh
+        // 4. Tạo hiệu ứng "Cover Flow"
+        viewPager.offscreenPageLimit = 1
         viewPager.setPageTransformer { page, position ->
             val absPos = Math.abs(position)
             page.scaleY = 0.85f + (1 - absPos) * 0.15f
@@ -44,37 +44,52 @@ class MainActivity : AppCompatActivity() {
             page.alpha = 0.5f + (1 - absPos) * 0.5f
         }
 
-        // 5. Quan sát (Observe) dữ liệu từ ViewModel
+        // 5. Quan sát (Observe) dữ liệu - ĐÃ SỬA LỖI (CHỈ 1 LẦN)
         viewModel.allNovels.observe(this) { novels ->
-            if (novels.isNullOrEmpty()) {
-                // Nếu DB trống, thêm dữ liệu mẫu
-                addSampleData()
-            } else {
-                // Nếu có dữ liệu, cập nhật lên Adapter
+
                 adapter.submitList(novels)
-            }
+
         }
 
         // 6. Xử lý nút mũi tên
         btnPrev.setOnClickListener {
             val currentItem = viewPager.currentItem
             if (currentItem > 0) {
-                viewPager.setCurrentItem(currentItem - 1, true) // Lướt về trước
+                viewPager.setCurrentItem(currentItem - 1, true)
             }
         }
 
         btnNext.setOnClickListener {
             val currentItem = viewPager.currentItem
             if (currentItem < adapter.itemCount - 1) {
-                viewPager.setCurrentItem(currentItem + 1, true) // Lướt về sau
+                viewPager.setCurrentItem(currentItem + 1, true)
             }
+        }
+
+        // 7. Xử lý nút FAB (+) - ĐÃ SỬA LỖI (ĐẶT BÊN NGOÀI OBSERVE)
+        val fab = findViewById<View>(R.id.fabAddNewNovel)
+        if (BuildConfig.DEBUG) {
+            fab.visibility = View.VISIBLE
+            fab.setOnClickListener {
+                val intent = Intent(this, AddNovelActivity::class.java)
+                startActivity(intent)
+            }
+        } else {
+            fab.visibility = View.GONE
         }
     }
 
-    // Hàm thêm dữ liệu mẫu
-    private fun addSampleData() {
-        viewModel.insertNovel(Novel(title = "Phàm Nhân Tu Tiên", author = "Vong Ngữ", coverUrl = "", summary = ""))
-        viewModel.insertNovel(Novel(title = "Tiên Nghịch", author = "Nhĩ Căn", coverUrl = "", summary = ""))
-        viewModel.insertNovel(Novel(title = "Cầu Ma", author = "Nhĩ Căn", coverUrl = "", summary = ""))
+    // 8. Hàm onNovelClicked
+    private fun onNovelClicked(novel: Novel) {
+        val MAIN_NOVEL_TITLE = "Phàm Nhân Tu Tiên"
+
+        if (novel.title == MAIN_NOVEL_TITLE) {
+            val intent = Intent(this, BookReaderActivity::class.java)
+            intent.putExtra(BookReaderActivity.EXTRA_NOVEL_ID, novel.id)
+            startActivity(intent)
+        } else {
+            Toast.makeText(this, "Coming soon!", Toast.LENGTH_SHORT).show()
+        }
     }
-}
+
+    }

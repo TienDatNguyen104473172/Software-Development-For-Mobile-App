@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface NovelDao {
     // Lấy tất cả truyện, sắp xếp theo tên
-    @Query("SELECT * FROM novels ORDER BY title ASC")
+    @Query("SELECT * FROM novels ORDER BY id ASC")
     fun getAllNovels(): Flow<List<Novel>>
 
     // Lấy một truyện cụ thể theo ID
