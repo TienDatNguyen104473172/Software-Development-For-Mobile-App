@@ -25,14 +25,14 @@ class BookReaderPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(
             // Trang 1: CharacterFragment (Đã có, dùng bản mới)
             1 -> CharacterFragment()
 
-            // Trang 2: Sects (Tông Môn) - Dùng placeholder
-            2 -> PlaceholderFragment.newInstance("Sects (Coming Soon)")
+            // Trang 2: Sects (ĐÃ CẬP NHẬT)
+            2 -> SectFragment.newInstance()
 
             // Trang 3: Techniques (Công Pháp) - Dùng placeholder
-            3 -> PlaceholderFragment.newInstance("Techniques (Coming Soon)")
+            3 -> TechniqueFragment.newInstance()
 
             // Trang 4: Cultivation (Tu Luyện) - Dùng placeholder
-            4 -> PlaceholderFragment.newInstance("Cultivation (Coming Soon)")
+            4 -> CultivationFragment.newInstance()
 
             else -> Fragment() // Trường hợp dự phòng
         }

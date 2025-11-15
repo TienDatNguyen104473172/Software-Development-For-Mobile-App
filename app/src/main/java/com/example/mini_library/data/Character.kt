@@ -1,27 +1,14 @@
 package com.example.mini_library.data
 
 import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(
-    tableName = "characters",
-    foreignKeys = [
-        ForeignKey(
-            entity = Novel::class,
-            parentColumns = ["id"],
-            childColumns = ["novelId"],
-            onDelete = ForeignKey.CASCADE
-        )
-    ],
-    indices = [Index(value = ["novelId"])]
-)
+@Entity(tableName = "characters")
 data class Character(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val novelId: Int,
     val name: String,
-    val avatarUrl: String,
     val role: String,
-    val bio: String
+    val description: String,
+    val imageUri: String? = null // This MUST be nullable for migration to work
 )

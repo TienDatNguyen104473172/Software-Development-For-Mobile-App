@@ -7,4 +7,7 @@
     <string name="tab_sects">Sects</string>
     <string name="tab_techniques">Techniques</string>
     <string name="tab_cultivation">Cultivation</string>
+    <string name="character_name_placeholder">Character Name</string>
+    <string name="character_role_placeholder">Main Character</string>
+    <string name="delete_character_content_description">Delete Character</string>
 </resources>

@@ -27,11 +27,19 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Khởi tạo Adapter
-        val adapter = CharacterAdapter { character ->
-            Toast.makeText(context, "Selected: ${character.name}", Toast.LENGTH_SHORT).show()
-            // TODO: Mở màn hình chi tiết nhân vật
-        }
+        // Khởi tạo Adapter với cả hai callback
+        val adapter = CharacterAdapter(
+            // 1. Callback khi click vào item (để xem chi tiết)
+            onItemClicked = { character ->
+                Toast.makeText(context, "Selected: ${character.name}", Toast.LENGTH_SHORT).show()
+                // TODO: Mở màn hình chi tiết nhân vật
+            },
+            // 2. Callback khi click vào nút xóa (chỉ có ở chế độ debug)
+            onDeleteClicked = { character ->
+                viewModel.deleteCharacter(character)
+                Toast.makeText(context, "Đã xóa: ${character.name}", Toast.LENGTH_SHORT).show()
+            }
+        )
 
         // Tìm RecyclerView trong layout
         val recyclerView = view.findViewById<RecyclerView>(R.id.characterRecyclerView)
