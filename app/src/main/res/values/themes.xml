@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Mini_Library" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+    <style name="Theme.Mini_Library" parent="Theme.Material3.Dark.NoActionBar">
 
-    <style name="Theme.Mini_Library" parent="Base.Theme.Mini_Library" />
+        <item name="colorPrimary">#FFD700</item>
+        <item name="colorOnPrimary">#000000</item> <item name="android:windowBackground">#1C1C1E</item>
+
+        <item name="colorSurface">#2C2C2E</item>
+        <item name="colorOnSurface">#FFFFFF</item> </style>
 </resources>
