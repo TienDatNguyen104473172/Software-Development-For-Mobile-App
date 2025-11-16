@@ -17,24 +17,10 @@ Highly polished, tab-based reader UI optimized for content lookup
 
 Efficient offline-first design enabling usage without internet connection
 
-2. Screenshots
-Homescreen + FAB homescreen
-![Homescreen Layout 1](Assets%20image/gif%20and%20screenshot/homescreen1.png) | Main homescreen layout |
-![Homescreen Layout 2](Assets%20image/gif%20and%20screenshot/homescreen2.png) | Main homescreen layout |
-![Homescreen with FAB](Assets%20image/gif%20and%20screenshot/FAB%20homescreen.png) | Screenshot showing the Floating Action Button (FAB) on the homescreen. |
-
-Content including: overview, characters, sects, techniques, cultivations taps and FAB content tap
-![Character Tab](Assets%20image/gif%20and%20screenshot/character%20tap.png) | The character details tab interface. |
-![Cultivation Tab](Assets%20image/gif%20and%20screenshot/cultivation%20tap.png) | The cultivation/progression tab interface. |
-![Overview Tab](Assets%20image/gif%20and%20screenshot/overview%20tap.png) | The general overview tab interface. |
-![Sects Tab](Assets%20image/gif%20and%20screenshot/sects%20tap.png) | The sects/factions tab interface. |
-![Techniques Tab](Assets%20image/gif%20and%20screenshot/techniques%20tap.png) | The techniques/skills tab interface. |
-![FAB for Content Creation](Assets%20image/gif%20and%20screenshot/FAB%20for%20content.png) | Detailed view of the FAB used for creating or adding content. |
-
-3. Demo Video / GIF
+2. Demo Video / GIF
 ![App Demo GIF](Assets%20image/gif%20and%20screenshot/gif%20demo%20app.gif)
 
-4. Core Features (Version 1.0)
+3. Core Features (Version 1.0)
 Reader Interface
 
 A structured reader layout using tab navigation, including:
@@ -81,7 +67,7 @@ Cultivation stages
 
 Plot arcs
 
-5. Technical Architecture
+4. Technical Architecture
 
 This project follows the MVVM (Model – View – ViewModel) architecture to maintain clear structure, scalability, and readability.
 
@@ -130,7 +116,7 @@ Displays lists with RecyclerView
 
 Coordinates user interaction and navigation
 
-6. Project Structure
+5. Project Structure
 com.example.mini_library
 │
 ├── data
@@ -146,7 +132,7 @@ com.example.mini_library
         ├── viewmodels (*.ViewModel.kt)
         └── activities (MainActivity, BookReaderActivity)
 
-7. Requirements
+6. Requirements
 
 Android Studio Ladybug or newer
 
@@ -156,11 +142,11 @@ Target SDK: 34
 
 Kotlin JVM Target: 1.8
 
-8. Build Instructions
+7. Build Instructions
 
 Clone the repository:
 
-git clone https://github.com/TienDatNguyen104473172/Software-Development-For-Mobile-App
+git clone https://github.com/TienDatNguyen104473172/Cultivator-s_Codex
 
 Open the project in Android Studio
 
@@ -170,7 +156,7 @@ Build the project
 
 Run on a real device or emulator
 
-9. Initial Setup for New Users
+8. Initial Setup for New Users
 
 Important: The Room database is stored locally on the developer's device.
 The database does not contain preloaded content because novel data is not uploaded to GitHub.
@@ -187,7 +173,7 @@ Tap the novel cover
 
 Use the FAB in the Reader screen to add Characters, Arcs, Sects, etc.
 
-10. Tech Stack
+9. Tech Stack
 
 Kotlin
 
@@ -205,7 +191,7 @@ RecyclerView + ViewPager2
 
 Coil for image loading
 
-11. Future Roadmap (Version 2.0)
+10. Future Roadmap (Version 2.0)
 Cloud Sync and Authentication
 
 Firebase Authentication
@@ -226,7 +212,7 @@ Localization
 
 Full multilingual support (English, Vietnamese, Chinese)
 
-12. License
+11. License
 MIT License
 
 Copyright (c) 2025 TienDatNguyen104473172
@@ -249,7 +235,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-13. Credits / Acknowledgements
+12. Credits / Acknowledgements
 https://github.com/kiwix/kiwix-android
 https://github.com/android/views-widgets-samples/tree/main/ViewPager2
 https://developer.android.com/topic/architecture
