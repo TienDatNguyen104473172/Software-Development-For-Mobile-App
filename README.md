@@ -157,6 +157,8 @@ Build the project
 
 Run on a real device or emulator
 
+*NOTE: For Quick Review (APK): A pre-compiled Debug APK file is attached to the latest v1.0.0 Release on this repository. This provides the fastest way to test the application's core UI and functionality on any Android device without needing to configure the build environment. (optional)
+
 8. Initial Setup for New Users
 
 Important: The Room database is stored locally on the developer's device.
