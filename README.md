@@ -4,8 +4,9 @@ The Ultimate Xianxia Lore Companion
 
 1. Project Overview
 
-Cultivator's Codex is a native Android application designed to function as a comprehensive, offline-first wiki for complex fantasy and Xianxia (cultivation) novels.
-The application focuses on solving a common issue among readers: tracking large character rosters, cultivation systems, sect structures, and intricate plot arcs across long-running web novels.
+Cultivator's Codex is a dedicated, native Android application built for the passionate Xianxia and Wuxia community. It serves as a personal knowledge archive where users can meticulously track and manage every intricate detail of their favorite long-running novels—including character rosters, cultivation levels, techniques (Công Pháp), and essential plot summaries.
+
+The application is designed to satisfy the ultimate fan's desire for comprehensive, accessible lore, enabling them to save and organize any information they love about their cherished fantasy world. It provides offline data persistence and is built on a modern MVVM architecture with Room Database.
 
 The project demonstrates the following:
 
@@ -155,6 +156,8 @@ Sync Gradle
 Build the project
 
 Run on a real device or emulator
+
+*NOTE: For Quick Review (APK): A pre-compiled Debug APK file is attached to the latest v1.0.0 Release on this repository. This provides the fastest way to test the application's core UI and functionality on any Android device without needing to configure the build environment. (optional)
 
 8. Initial Setup for New Users
 

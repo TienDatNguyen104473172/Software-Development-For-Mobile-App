@@ -81,15 +81,10 @@ class MainActivity : AppCompatActivity() {
 
     // 8. Hàm onNovelClicked
     private fun onNovelClicked(novel: Novel) {
-        val MAIN_NOVEL_TITLE = "Phàm Nhân Tu Tiên"
-
-        if (novel.title == MAIN_NOVEL_TITLE) {
-            val intent = Intent(this, BookReaderActivity::class.java)
-            intent.putExtra(BookReaderActivity.EXTRA_NOVEL_ID, novel.id)
-            startActivity(intent)
-        } else {
-            Toast.makeText(this, "Coming soon!", Toast.LENGTH_SHORT).show()
-        }
+        // ĐÃ SỬA: Bỏ toàn bộ logic if/else hardcode. Mở màn hình đọc truyện cho TẤT CẢ các cuốn sách.
+        val intent = android.content.Intent(this, BookReaderActivity::class.java)
+        intent.putExtra(BookReaderActivity.EXTRA_NOVEL_ID, novel.id)
+        startActivity(intent)
     }
 
     }
