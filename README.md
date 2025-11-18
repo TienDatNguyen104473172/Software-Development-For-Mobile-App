@@ -1,8 +1,8 @@
-CULTIVATOR'S CODEX
+# CULTIVATOR'S CODEX
 
-The Ultimate Xianxia Lore Companion
+_The Ultimate Xianxia Lore Companion_
 
-1. Project Overview
+## 1. Project Overview
 
 Cultivator's Codex is a dedicated, native Android application built for the passionate Xianxia and Wuxia community. It serves as a personal knowledge archive where users can meticulously track and manage every intricate detail of their favorite long-running novels—including character rosters, cultivation levels, techniques (Công Pháp), and essential plot summaries.
 
@@ -10,114 +10,92 @@ The application is designed to satisfy the ultimate fan's desire for comprehensi
 
 The project demonstrates the following:
 
-Robust local data persistence through Room Database (SQLite)
+- Robust local data persistence through Room Database (SQLite)
+- Clean MVVM architecture with clear separation of concerns
+- Highly polished, tab-based reader UI optimized for content lookup
+- Efficient offline-first design enabling usage without internet connection
 
-Clean MVVM architecture with clear separation of concerns
+## 2. Demo Video / GIF
 
-Highly polished, tab-based reader UI optimized for content lookup
-
-Efficient offline-first design enabling usage without internet connection
-
-2. Demo Video / GIF
 ![App Demo GIF](Assets%20image/gif%20and%20screenshot/gif%20demo%20app.gif)
 
-3. Core Features (Version 1.0)
-Reader Interface
+## 3. Core Features (Version 1.0)
+
+### Reader Interface
 
 A structured reader layout using tab navigation, including:
+- Overview
+- Characters
+- Sects
+- Techniques
+- Cultivation
 
-Overview
+### Cover Flow Browsing
 
-Characters
+The main screen implements a custom `ViewPager2`-based cover browsing experience with smooth transitions between novels.
 
-Sects
-
-Techniques
-
-Cultivation
-
-Cover Flow Browsing
-
-The main screen implements a custom ViewPager2-based cover browsing experience with smooth transitions between novels.
-
-Offline Data Persistence
+### Offline Data Persistence
 
 All data is stored locally using Room, ensuring full functionality even without internet.
 
-Developer Admin Tools
+### Developer Admin Tools
 
 A debug-mode Floating Action Button (FAB) provides quick access to add, update, and test content structures.
 
-Image Loading
+### Image Loading
 
-Coil is used to efficiently load remote images (covers, avatars, icons) with caching and smooth rendering.
+`Coil` is used to efficiently load remote images (covers, avatars, icons) with caching and smooth rendering.
 
-CRUD Support
+### CRUD Support
 
 Full Create, Read, and Delete operations for:
+- Novels
+- Characters
+- Sects
+- Techniques
+- Cultivation stages
+- Plot arcs
 
-Novels
-
-Characters
-
-Sects
-
-Techniques
-
-Cultivation stages
-
-Plot arcs
-
-4. Technical Architecture
+## 4. Technical Architecture
 
 This project follows the MVVM (Model – View – ViewModel) architecture to maintain clear structure, scalability, and readability.
 
-Data Layer (Model)
+### Data Layer (Model)
 
-Files:
-data/AppDatabase.kt
-data/WikiRepository.kt
-data/*Entity.kt
-data/*Dao.kt
+- **Files**:
+    - `data/AppDatabase.kt`
+    - `data/WikiRepository.kt`
+    - `data/*Entity.kt`
+    - `data/*Dao.kt`
+- **Responsibilities**:
+    - Defines SQL entities (Character, Sect, Technique, Arc, Novel)
+    - Provides DAO interfaces for Room queries
+    - Centralized data access through the Repository pattern
 
-Responsibilities:
+### ViewModel Layer (Business Logic)
 
-Defines SQL entities (Character, Sect, Technique, Arc, Novel)
+- **Files**:
+    - `ui/reader/BookReaderViewModel.kt`
+    - `ui/MainViewModel.kt`
+- **Responsibilities**:
+    - Manages business logic and state
+    - Exposes data via `LiveData` and `Kotlin Flow`
+    - Executes background work using Coroutines (`viewModelScope`)
 
-Provides DAO interfaces for Room queries
+### View Layer (UI)
 
-Centralized data access through the Repository pattern
+- **Files**:
+    - **Fragments**: `OverviewFragment`, `CharacterFragment`, `CultivationFragment`, `SectFragment`, `TechniqueFragment`
+    - **Adapters**: `CharacterAdapter`, `CultivationAdapter`, `SectAdapter`, etc.
+    - **Activities**: `MainActivity`, `BookReaderActivity`, `AddNovelActivity`
+- **Responsibilities**:
+    - Renders UI using XML layout files and Data Binding
+    - Displays lists with `RecyclerView`
+    - Coordinates user interaction and navigation
 
-ViewModel Layer (Business Logic)
+## 5. Project Structure
 
-Files:
-ui/reader/BookReaderViewModel.kt
-ui/MainViewModel.kt
-
-Responsibilities:
-
-Manages business logic and state
-
-Exposes data via LiveData and Kotlin Flow
-
-Executes background work using Coroutines (viewModelScope)
-
-View Layer (UI)
-
-Files:
-Fragments: OverviewFragment, CharacterFragment, CultivationFragment, SectFragment, TechniqueFragment
-Adapters: CharacterAdapter, CultivationAdapter, SectAdapter, etc.
-Activities: MainActivity, BookReaderActivity, AddNovelActivity
-
-Responsibilities:
-
-Renders UI using XML layout files and Data Binding
-
-Displays lists with RecyclerView
-
-Coordinates user interaction and navigation
-
-5. Project Structure
+```
 com.example.mini_library
 │
 ├── data
@@ -132,90 +110,74 @@ com.example.mini_library
         ├── adapters (*.Adapter.kt)
         ├── viewmodels (*.ViewModel.kt)
         └── activities (MainActivity, BookReaderActivity)
+```
 
-6. Requirements
+## 6. Requirements
 
-Android Studio Ladybug or newer
+- Android Studio Ladybug or newer
+- Minimum SDK: 26
+- Target SDK: 34
+- Kotlin JVM Target: 1.8
 
-Minimum SDK: 26
+## 7. Build Instructions
 
-Target SDK: 34
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/TienDatNguyen104473172/Cultivator-s_Codex
+    ```
+2.  Open the project in Android Studio
+3p.  Sync Gradle
+4.  Build the project
+5.  Run on a real device or emulator
 
-Kotlin JVM Target: 1.8
+**NOTE**: For Quick Review (APK): A pre-compiled Debug APK file is attached to the latest `v1.0.0` Release on this repository. This provides the fastest way to test the application's core UI and functionality on any Android device without needing to configure the build environment. (optional)
 
-7. Build Instructions
+## 8. Initial Setup for New Users
 
-Clone the repository:
-
-git clone https://github.com/TienDatNguyen104473172/Cultivator-s_Codex
-
-Open the project in Android Studio
-
-Sync Gradle
-
-Build the project
-
-Run on a real device or emulator
-
-*NOTE: For Quick Review (APK): A pre-compiled Debug APK file is attached to the latest v1.0.0 Release on this repository. This provides the fastest way to test the application's core UI and functionality on any Android device without needing to configure the build environment. (optional)
-
-8. Initial Setup for New Users
-
-Important: The Room database is stored locally on the developer's device.
-The database does not contain preloaded content because novel data is not uploaded to GitHub.
+**Important**: The Room database is stored locally on the developer's device. The database does not contain preloaded content because novel data is not uploaded to GitHub.
 
 During testing:
 
-Open the app
+1.  Open the app
+2.  Use the FAB on the Home screen
+3.  Select "Add Novel" to create a new entry
+4.  Tap the novel cover
+5.  Use the FAB in the Reader screen to add Characters, Arcs, Sects, etc.
 
-Use the FAB on the Home screen
+## 9. Tech Stack
 
-Select "Add Novel" to create a new entry
+- Kotlin
+- MVVM Architecture
+- Room Database (SQLite)
+- `LiveData` and `Kotlin Flow`
+- Coroutines
+- Data Binding / View Binding
+- `RecyclerView` + `ViewPager2`
+- `Coil` for image loading
 
-Tap the novel cover
+## 10. Future Roadmap (Version 2.0)
 
-Use the FAB in the Reader screen to add Characters, Arcs, Sects, etc.
+### Cloud Sync and Authentication
 
-9. Tech Stack
+- Firebase Authentication
+- Firestore-based cloud sync
 
-Kotlin
+### External Data Ingestion
 
-MVVM Architecture
+- `Retrofit` integration to fetch book metadata (Google Books, OpenLibrary)
 
-Room Database (SQLite)
+### Advanced UI Features
 
-LiveData and Kotlin Flow
+- Character detail pages
+- Visual relationship graphs (with graph layout libraries)
 
-Coroutines
+### Localization
 
-Data Binding / View Binding
+- Full multilingual support (English, Vietnamese, Chinese)
 
-RecyclerView + ViewPager2
+## 11. License
 
-Coil for image loading
-
-10. Future Roadmap (Version 2.0)
-Cloud Sync and Authentication
-
-Firebase Authentication
-
-Firestore-based cloud sync
-
-External Data Ingestion
-
-Retrofit integration to fetch book metadata (Google Books, OpenLibrary)
-
-Advanced UI Features
-
-Character detail pages
-
-Visual relationship graphs (with graph layout libraries)
-
-Localization
-
-Full multilingual support (English, Vietnamese, Chinese)
-
-11. License
+```
 MIT License
 
 Copyright (c) 2025 TienDatNguyen104473172
@@ -237,9 +199,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
 
-12. Credits / Acknowledgements
-https://github.com/kiwix/kiwix-android
-https://github.com/android/views-widgets-samples/tree/main/ViewPager2
-https://developer.android.com/topic/architecture
-https://developer.android.com/training/data-storage/room
+## 12. Credits / Acknowledgements
+
+- <https://github.com/kiwix/kiwix-android>
+- <https://github.com/android/views-widgets-samples/tree/main/ViewPager2>
+- <https://developer.android.com/topic/architecture>
+- <https://developer.android.com/training/data-storage/room>
